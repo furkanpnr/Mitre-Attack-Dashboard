@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ active_form }}</title>
+
+
+	<link rel="stylesheet" href="{% static 'css/account/login.css' %}">
+	<style>
+		body{
+			background: url("{% static 'img/account/bg.jpg' %}") no-repeat center center fixed;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container" id="container", data-active-form="{{ active_form }}">
+		{% comment %} sign up form {% endcomment %}
+		<div class="form-container sign-up-container">
+			<form action="{% url 'register' %}" method="post">
+				{% csrf_token %}
+				{% if register_error %}
+					<div>{{ register_error }}</div>
+				{% endif %}
+				<h1>Create Account</h1>
+				
+				<input type="text" placeholder="Username" name="username" value="{{ username2 }}" required />
+				<input type="email" placeholder="Email" name="email" value="{{ email }}" required />
+				<input type="password" placeholder="Password" name="password" required />
+				<button type="submit">Sign Up</button>
+			</form>
+		</div>
+		{% comment %} login form {% endcomment %}
+		<div class="form-container sign-in-container">
+			<form action="{% url 'login' %}" method="post">
+				{% csrf_token %}
+				{% if login_error %}
+					<div>{{ login_error }}</div>
+				{% endif %}
+	
+				<h1>Login</h1>
+				<input type="text" placeholder="Username" name="username" value="{{ username1 }}" required />
+				<input type="password" placeholder="Password" name="password" required />
+				<a href="#">Forgot your password?</a>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+		{% comment %} overlay {% endcomment %}
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Have an account?</h1>
+					<p>Please login with your personal info</p>
+					<button class="ghost" id="signIn">Login</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Don't you have an account?</h1>
+					<p>Enter your personal details and sing up</p>
+					<button class="ghost" id="signUp">Sign Up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="{% static 'js/account/login.js' %}"></script>
+
+</body>
+</html>
+
+
+
