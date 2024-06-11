@@ -1,0 +1,39 @@
+{% load static %}
+
+<div class="machine-card">
+    <a style="text-decoration:none;" href="{% url 'results' %}?machine_id={{ machine.id }}">
+        <div class="header">
+            <div class="icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6V21C3 22.1 3.9 23 5 23H27C28.1 23 29 22.1 29 21V6C29 4.9 28.1 4 27 4H5C3.9 4 3 4.9 3 6Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 19H29" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 29H23" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13 23C13 25.1 12.3 27.6 11.2 29" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.8 29C19.7 27.6 19 25.1 19 23" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+        <div class="info">
+            <div class="local-ip cont">
+                <span>Local IP:</span>
+                {{machine.local_ip}}
+            </div>
+            <div class="public-ip cont">
+                <span>Public IP:</span>
+                {{machine.public_ip}}
+            </div>
+            <div class="mac-addr cont">
+                <span>Mac Address:</span>
+                {{machine.mac_addr|upper}}
+            </div>
+            <div class="os cont">
+                <span>OS:</span>
+                {{machine.os_name|title}}
+            </div>
+            <div class="user cont">
+                <span>User:</span>
+                {{machine.user_name}}
+            </div>
+        </div>
+    </a>
+</div>

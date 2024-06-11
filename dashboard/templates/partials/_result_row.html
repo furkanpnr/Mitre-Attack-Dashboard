@@ -1,0 +1,53 @@
+{% load static %}
+{% load strfilters %}
+
+<div class="products-row">
+    <a href="{% url 'result-detail' result.id %}" class="cell-more-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+    </a>
+
+    <div class="product-cell image">
+        {% if result.result_type == 'system_info' %}
+            <img src="{% static 'image/machine.jpg' %}" alt="system_info_attack_img">
+        {% endif %}
+
+        {% if result.result_type == 'clipboard_data' %}
+            <img src="{% static 'image/key.jpg' %}" alt="clipboard_data_attack_img">
+        {% endif %}
+        
+        {% if result.result_type == 'screen_capture' %}
+            {% if result.image.url %}
+                <img src="{{ result.image.url }}" alt="screen_capture_attack_img">
+            {% else %}
+                <img src="{% static 'image/eye.jpg' %}" alt="screen_capture_attack_img">
+            {% endif %}
+        {% endif %}
+        <span>{{ result.result_type|replace:"_, "|title }} Result</span>
+    </div>
+
+    <div class="product-cell category">
+        <span class="cell-label">Type:</span>
+        {{ result.attack.name|title }}
+    </div>
+    <div class="product-cell status-cell">
+        <span class="cell-label">Status:</span>
+        {% if result.success %}
+            <span class="status active">Success</span>
+        {% else %}
+        <span class="status disabled">Failed</span>
+        {% endif %}
+
+    </div>
+    <div class="product-cell sales">
+        <span class="cell-label">Mitre Id:</span>
+        {{ result.attack.mitre_id }}
+    </div>
+    <div class="product-cell stock">
+        <span class="cell-label">Machine:</span>
+        {{ result.machine.mac_addr|upper }}
+    </div>
+    <div class="product-cell price">
+        <span class="cell-label">Executed At:</span>
+        {{ result.executed_date|time:"H:i" }} - {{ result.executed_date|date:"D d M Y" }}
+    </div>
+</div>

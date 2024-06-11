@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load strfilters %}
+
+
+{% block css %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/dashboard/detail.css' %}">
+{% endblock %}
+
+{% block title %} Result {% endblock %} 
+
+{% block content %}
+  <div class="product-detail">
+
+    <div class="products-row">
+      <div class="left">
+        <div class="product-cell image">
+            {% if result.result_type == 'system_info' %}
+                <img src="{% static 'image/machine.jpg' %}" alt="system_info_attack_img">
+            {% endif %}
+    
+            {% if result.result_type == 'clipboard_data' %}
+                <img src="{% static 'image/key.jpg' %}" alt="clipboard_data_attack_img">
+            {% endif %}
+            
+            {% if result.result_type == 'screen_capture' %}
+                {% if result.image.url %}
+                    <img src="{{ result.image.url }}" alt="screen_capture_attack_img">
+                {% else %}
+                    <img src="{% static 'image/eye.jpg' %}" alt="screen_capture_attack_img">
+                {% endif %}
+            {% endif %}
+            <span>{{ result.result_type|replace:"_, "|title }} Result</span>
+        </div>
+    
+        <div class="product-cell category">
+            <span class="cell-label">Type:</span>
+            {{ result.attack.name|title }}
+        </div>
+        <div class="product-cell status-cell">
+            <span class="cell-label">Status:</span>
+            {% if result.success %}
+                <span class="status active">Success</span>
+            {% else %}
+            <span class="status disabled">Failed</span>
+            {% endif %}
+    
+        </div>
+        <div class="product-cell sales">
+            <span class="cell-label">Mitre Id:</span>
+            {{ result.attack.mitre_id }}
+        </div>
+        <div class="product-cell stock">
+            <span class="cell-label">Machine:</span>
+            {{ result.machine.mac_addr|upper }}
+        </div>
+        <div class="product-cell price">
+            <span class="cell-label">Executed At:</span>
+            {{ result.executed_date|time:"H:i" }} - {{ result.executed_date|date:"D d M Y" }}
+        </div>
+
+      </div>
+
+      <div class="right">
+        <h1>Data</h1>
+        {% for key, val in result.data.items %}
+          <div class="product-cell">
+            <span class="cell-label">{{ key|replace:"_, "|title }}:</span>
+            <span class="cell-value">{{ val }}</span>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+{% endblock %}
+{% block js %}
+{% endblock %}

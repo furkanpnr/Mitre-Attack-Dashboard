@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'css/dashboard/home.css' %}">
 {% endblock %}
 
-{% block title %} Home {% endblock %} 
+{% block title %} Attack {% endblock %} 
 
 {% block content %}
     <div class="main">
@@ -20,18 +20,6 @@
                         {% include 'partials/_statistics_card.html' %}
                     {% endfor %}
                 </div>
-            </div>
-        </div>
-
-        <div class="right-panel">
-            <div class="header">
-                <h2>Machines</h2>
-            </div>
-
-            <div class="machine-cards">
-                {% for machine in machines %}
-                    {% include 'partials/_machine_card.html' %}
-                {% endfor %}
             </div>
         </div>
     </div>

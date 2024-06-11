@@ -1,34 +1,71 @@
 {% load static %}
 
-<div id="sidebar" class="sidebar">
-    <div class="header">
-        <div class="logo">
-            <img src="https://c10.patreonusercontent.com/4/patreon-media/p/campaign/7498828/456279b6030447c9b0dae837cd93148f/eyJ3IjoyMDB9/2.jpg?token-time=2145916800&token-hash=w-caivKoReTEEi8vDAODPK8kk6g6EDe4RLEhr1VBGF0%3D"
-                alt="Logo">
-            <h1 id="logo-text">MITRE<span class="c-red">ATTACK</span></h1>
-        </div>
-        <span id="sidebar-btn-close" onclick="sidebarClose()" class="icon material-icons-sharp">close</span>
+<div class="sidebar">
+    <div class="sidebar-header">
+      <div class="app-icon">
+        <a href="{% url 'home' %}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285.61 30" fill="currentColor"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="25.26 0.47 18.2 18.64 11.08 0.47 5.45 0.47 0 29.54 5.81 29.54 9.26 11.33 15.99 29.54 20.35 29.54 27.07 11.33 30.53 29.54 36.51 29.54 30.89 0.47 25.26 0.47"/><rect class="cls-1" x="37.97" y="0.47" width="5.45" height="29.07"/><polygon class="cls-1" points="45.2 5.19 51.59 5.19 51.59 29.54 57 29.54 57 5.19 63.4 5.19 63.4 0.47 45.2 0.47 45.2 5.19"/><path class="cls-1" d="M79.72,16.85a9,9,0,0,0,4-2.43,7.43,7.43,0,0,0,2-5.6,7.58,7.58,0,0,0-1.81-5.44A8.7,8.7,0,0,0,80.19,1,11.14,11.14,0,0,0,77.58.47H64.64V29.54h5.45V5.37h6.36a4,4,0,0,1,2.76,1,3.32,3.32,0,0,1,1,2.5A3.11,3.11,0,0,1,79,11.44a3.78,3.78,0,0,1-2.26.83h-.29l-5.41,0v5.23l8.86,12h6.55L76.78,17.4A12.28,12.28,0,0,0,79.72,16.85Z"/><polygon class="cls-1" points="87.17 29.54 103.99 29.54 103.99 24.82 92.62 24.82 92.62 17.36 103.89 17.36 103.89 12.64 92.62 12.64 92.62 5.19 103.99 5.19 103.99 0.47 87.17 0.47 87.17 29.54"/><path class="cls-1" d="M151,.55,139.11,29.46h5l2.66-6.84h12.34l2.74,6.84h5L155.17.55Zm-3,18.36,4.88-13,5,13Z"/><polygon class="cls-1" points="162.94 4.61 169.58 4.61 169.58 29.46 174.19 29.46 174.19 4.61 180.83 4.61 180.83 0.55 162.94 0.55 162.94 4.61"/><polygon class="cls-1" points="200.08 0.55 182.19 0.55 182.19 4.61 188.83 4.61 188.83 29.46 193.44 29.46 193.44 4.61 200.08 4.61 200.08 0.55"/><path class="cls-1" d="M224.3,11.92H220l-3.4,6.68-5-5.08c2.18-1.17,5.15-2.89,5.15-6.76A6.86,6.86,0,0,0,209.69,0a7,7,0,0,0-7.15,6.88c.08,2.5,1.37,4.37,3.32,6.44-2.57,1.37-6.4,3.79-6.4,8.44,0,4.38,3.55,8.24,9.26,8.24,4.65,0,6.87-2.34,8.43-5.35L222.31,30l2.81-2.74-5.78-5.9ZM209.69,3.44h0A3.22,3.22,0,0,1,213,6.72c0,2.19-1.4,3.16-3.79,4.49-1.13-1.21-2.65-2.58-2.65-4.57A3.12,3.12,0,0,1,209.69,3.44Zm-.82,22.66a4.74,4.74,0,0,1-5-4.69c0-2.11,1.29-3.95,4.49-5.55l6,6.14C213.13,24.5,211.76,26.1,208.87,26.1Z"/><path class="cls-1" d="M241,4.06a10.24,10.24,0,0,1,9,5.43h4.88A14.69,14.69,0,0,0,241,0a14.84,14.84,0,0,0-15.08,15,14.91,14.91,0,0,0,15.12,15,14.33,14.33,0,0,0,13.72-9.33h-4.85A10.38,10.38,0,0,1,241,25.94c-6.09,0-10.47-5-10.47-11C230.55,9.1,234.85,4.06,241,4.06Z"/><polygon class="cls-1" points="277.16 0.55 272.27 0.55 261.69 14.22 261.69 0.55 257.08 0.55 257.08 29.46 261.69 29.46 261.69 16.14 272.63 29.46 278.29 29.46 265.91 14.96 277.16 0.55"/><rect class="cls-1" x="121.01" y="0.17" width="0.75" height="29.66"/><rect class="cls-1" x="121.01" y="0.17" width="0.75" height="29.66"/><path class="cls-1" d="M282.42.26a3.22,3.22,0,1,1-3.23,3.22A3.21,3.21,0,0,1,282.42.26Zm0,.54a2.63,2.63,0,0,0-2.63,2.68,2.63,2.63,0,1,0,5.26,0A2.64,2.64,0,0,0,282.41.8Z"/><path class="cls-1" d="M283.84,2.69c0-.74-.45-1.07-1.35-1.07h-1.41v3.6h.71V3.69h.45l.81,1.53h.79L283,3.65A.87.87,0,0,0,283.84,2.69Zm-1.4.44h-.65V2.18h.62c.46,0,.7.1.7.45S282.89,3.13,282.44,3.13Z"/></g></g></svg>
+        </a>
+      </div>
     </div>
-    <div class="link">
-        <ul>
-            <li><a id="selected" href="#"><span class="icon material-icons-sharp">dashboard</span><span
-                        class="text">Dashboard</span></a></li>
-            <!-- <li><a href="#"><span class="icon material-icons-sharp">person_outline</span><span class="text">People</span></a></li> -->
-            <li><a href="./reports.html"><span
-                        class="icon material-icons-sharp">report_gmailerrorred</span><span
-                        class="text">Reports</span></a></li>
-            <!-- <li><a href="#"><span class="icon material-icons-sharp">receipt_long</span><span class="text">Orders</span></a></li> -->
-            <li><a href="./statistics.html"><span class="icon material-icons-sharp">insights</span><span
-                        class="text">Statistics</span></a></li>
-            <li><a href="../phis/phis.html"><span class="icon material-icons-sharp">mail</span><span
-                        class="text">Sending Mail</span></a></li>
-            <!-- <li><a href="#"><span class="icon material-icons-sharp">mail_outline</span><span class="text">Messages</span><span id="msg">28</span></a></li> -->
-            <!-- <li><a href="#"><span class="icon material-icons-sharp">settings</span><span class="text">Settings</span></a></li> -->
-            <!-- <li><a href="#"><span class="icon material-icons-sharp">inventory</span><span class="text">Template</span></a></li> -->
-            <li><a href="../phis/save.html"><span class="icon material-icons-sharp">add</span><span
-                        class="text">Add Template</span></a></li>
-        </ul>
-        <a id="logout" class="logout" href="../sign/login.html"><span
-                class="icon material-icons-sharp">logout</span><span class="text">Logout</span></a>
+    <ul class="sidebar-list">
+      <li class="sidebar-list-item">
+        <a href="{% url 'home' %}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 17C17 16.2176 17.6342 15.5834 18.4167 15.5834H26.9167C27.6991 15.5834 28.3333 16.2176 28.3333 17V26.9167C28.3333 27.6991 27.6991 28.3334 26.9167 28.3334H18.4167C17.6342 28.3334 17 27.6991 17 26.9167V17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5.66667 7.08329C5.66667 6.3009 6.30094 5.66663 7.08333 5.66663H11.3333C12.1157 5.66663 12.75 6.3009 12.75 7.08329V26.9166C12.75 27.6991 12.1157 28.3333 11.3333 28.3333H7.08333C6.30094 28.3333 5.66667 27.6991 5.66667 26.9166V7.08329Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M17 7.08329C17 6.3009 17.6342 5.66663 18.4167 5.66663H26.9167C27.6991 5.66663 28.3333 6.3009 28.3333 7.08329V9.91663C28.3333 10.699 27.6991 11.3333 26.9167 11.3333H18.4167C17.6342 11.3333 17 10.699 17 9.91663V7.08329Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'machines' %}">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6V21C3 22.1 3.9 23 5 23H27C28.1 23 29 22.1 29 21V6C29 4.9 28.1 4 27 4H5C3.9 4 3 4.9 3 6Z" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 19H29" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 29H23" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 23C13 25.1 12.3 27.6 11.2 29" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20.8 29C19.7 27.6 19 25.1 19 23" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+                
+          <span>Machines</span>
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'attacks' %}">
+            <svg fill="none" stroke="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                <g id="BUG">
+                    <path d="M23.29,32.71a1,1,0,0,0,1.42-1.42A1,1,0,0,0,23.29,32.71Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M50.16,48.1a19.14,19.14,0,0,0,0-12.72A10.75,10.75,0,0,0,59.78,24.7a1,1,0,0,0-2,0,8.74,8.74,0,0,1-8.44,8.72,19.29,19.29,0,0,0-8.51-8.78c1.54-4.16.41-9.76-2.53-12.69.81-1.27,3.52-8.7,1-8.95a1,1,0,0,0-1,1,14.65,14.65,0,0,1-1.55,6.62,8.2,8.2,0,0,0-9.5,0A14.65,14.65,0,0,1,25.7,4a1,1,0,0,0-1-1c-2.52.26.18,7.66,1,9-2.94,2.93-4.07,8.52-2.53,12.69a19.29,19.29,0,0,0-8.51,8.78A8.74,8.74,0,0,1,6.22,24.7a1,1,0,0,0-2,0,10.75,10.75,0,0,0,9.62,10.68,19.14,19.14,0,0,0,0,12.72A10.75,10.75,0,0,0,4.22,58.78a1,1,0,0,0,2,0,8.74,8.74,0,0,1,8.44-8.72c6.94,14.52,27.75,14.51,34.68,0a8.74,8.74,0,0,1,8.44,8.72,1,1,0,0,0,2,0A10.75,10.75,0,0,0,50.16,48.1Zm-4.43,4C38.47,49.78,33.39,42.09,33,33H46.86A17.29,17.29,0,0,1,45.73,52.15ZM24.48,20.43c0-5.15,3.37-9.34,7.52-9.34,5.38-.16,9,7.27,7,12.73a19.17,19.17,0,0,0-14,0A11.13,11.13,0,0,1,24.48,20.43ZM32,24.48A17.22,17.22,0,0,1,45.49,31H27a1,1,0,0,0,0,2h4c-.36,9.09-5.44,16.78-12.7,19.15A17.29,17.29,0,0,1,17.14,33H21a1,1,0,0,0,0-2H18.51A17.22,17.22,0,0,1,32,24.48ZM32,59a17.18,17.18,0,0,1-12.33-5.21C25.59,51.54,30.1,46.1,32,39.3c1.9,6.8,6.41,12.24,12.33,14.49A17.18,17.18,0,0,1,32,59Z" stroke="currentColor" stroke-width="2"/>
+                </g>
+            </svg>
+          <span>Attacks</span>
+        </a>
+      </li>
+      <li class="sidebar-list-item">
+        <a href="{% url 'results' %}">
+          <svg fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+          <span>Results</span>
+        </a>
+      </li>
+    </ul>
+    <div class="account-info">
+      <div class="account-info-picture">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+          </svg>
+      </div>
+      <div class="account-info-name">
+        {{ user.username|title }}
+      </div>
+      <div class="account-logout">
+          <a href="{% url 'logout' %}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                  <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+              </svg>
+          </a>
+      </div>
     </div>
-</div>
+  </div>

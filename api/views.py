@@ -124,6 +124,3 @@ class AttackResultDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = AttackResult.objects.all()
     serializer_class = AttackResultSerializer
     lookup_field = "id"
-    
-
-    

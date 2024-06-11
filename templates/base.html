@@ -1,19 +1,24 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="{{ theme }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %} | Dashboard App</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/paginator.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> -->
     {% block css %}{% endblock %}
 </head>
 <body>
-    {% include 'partials/_side_bar.html' %}
-    {% block content %}{% endblock %}
-
-
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <div class="app-container">
+        {% include 'partials/_side_bar.html' %}
+        <div class="app-content">
+            {% include 'partials/_top_bar.html' %}
+            {% block content %}{% endblock %}    
+        </div>
+    </div>
+    <script src="{% static 'js/base.js' %}"></script>
     {% block js %}{% endblock js %}
 </body>
 </html>

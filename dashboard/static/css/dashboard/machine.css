@@ -1,0 +1,92 @@
+/* dashboard/home.css */
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* right panel */
+.right-panel {
+    padding: 16px;
+}
+
+.header {
+    margin-bottom: 16px;
+    color: var(--app-content-main-color);
+}
+
+.machine-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    overflow-y:auto;
+    max-height:800px;
+    padding: 10px;
+}
+
+/* Custom scrollbar styles for .machine-cards */
+.machine-cards {
+    scrollbar-width: thin;
+    scrollbar-width: 8px;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--app-content-secondary-color) var(--app-bg);
+}
+
+.machine-card {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--app-bg);;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px var(--app-content-main-color);;
+    transition: box-shadow 0.3s ease;
+    width: 350px;
+}
+
+.machine-card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 16px var(--action-color-hover);
+}
+
+.machine-card .header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.machine-card .icon {
+    width: 40px; 
+    height: 40px;
+    margin-right: 10px;
+    color: var(--app-content-main-color);
+}
+
+.machine-card .icon svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 2;
+}
+
+.machine-card .info {
+    padding: 8px;
+    position: relative;
+}
+
+.cont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--app-content-main-color);
+}
+
+
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+}

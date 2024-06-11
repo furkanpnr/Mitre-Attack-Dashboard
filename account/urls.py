@@ -1,7 +1,5 @@
 from django.urls import path
 from . import views
-# localhost:port/login -> login page
-# localhost:port/singup -> singup page
 
 urlpatterns = [
     path('login/', views.login_request, name='login'),

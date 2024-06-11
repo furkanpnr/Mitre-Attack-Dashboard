@@ -37,7 +37,7 @@ class AttackResult(models.Model):
     ]
     result_type = models.CharField(max_length=50, choices=RESULT_TYPES)
     success = models.BooleanField()
-    executed_date = models.DateTimeField(null=True)
+    executed_date = models.DateTimeField(null=True, )
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE, related_name='attack_results')
     attack = models.ForeignKey(Attack, on_delete=models.CASCADE, related_name='attack_results')
     data = models.JSONField(null=True, blank=True)
@@ -55,4 +55,4 @@ class AttackResult(models.Model):
         super().save(*args, **kwargs)
     
     def __str__(self):
-        return f"{self.result_type} result for {self.machine.mac_addr} on {self.executed_date}"
+        return f"{self.result_type.title()} Result -- {self.machine.mac_addr} -- {self.executed_date.isoformat()}"
